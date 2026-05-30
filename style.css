@@ -761,20 +761,24 @@ h3{
 }
 
 .intro-heart{
-    width:130px;
-    height:130px;
+    width:140px;
+    height:140px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:64px;
-    color:#c53953;
-    background:radial-gradient(circle at top, #fff7f7 0%, #f4d7db 60%, #ffdce1 100%);
-    border:2px solid rgba(197,82,104,0.18);
-    border-radius:50%;
-    box-shadow:0 24px 80px rgba(197,82,104,0.18);
+    background:transparent;
+    border:none;
+    box-shadow:none;
     cursor:pointer;
     animation:heart-bounce 1.7s ease-in-out infinite;
     user-select:none;
+    padding:14px;
+}
+
+.intro-heart img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
 .intro-heart:hover{
