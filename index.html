@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<!-- sample -->
   <meta charset="UTF-8" />
 
   <meta
@@ -25,6 +25,14 @@
 </head>
 
 <body>
+
+  <div class="intro-overlay" id="introOverlay" role="button" tabindex="0" aria-label="Open invitation and play music">
+    <div class="intro-content">
+      <div class="intro-heart" id="introHeart">❤</div>
+      <p class="intro-hint">Tap to enter</p>
+    </div>
+    <audio id="introAudio" src="audio.mp3" preload="auto"></audio>
+  </div>
 
   <!-- HERO -->
 
@@ -329,6 +337,31 @@
     </div>
 
   </footer>
+
+  <script>
+    const introOverlay = document.getElementById('introOverlay');
+    const introAudio = document.getElementById('introAudio');
+
+    const openWebsite = () => {
+      if (!introOverlay.classList.contains('intro-hidden')) {
+        introOverlay.classList.add('intro-hidden');
+        document.body.style.overflow = '';
+        const playPromise = introAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      }
+    };
+
+    introOverlay.addEventListener('click', openWebsite);
+    introOverlay.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openWebsite();
+      }
+    });
+    document.body.style.overflow = 'hidden';
+  </script>
 
 </body>
 
